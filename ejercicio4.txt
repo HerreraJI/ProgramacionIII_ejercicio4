@@ -1,0 +1,73 @@
+{
+    string entrada;
+    double Nro1, Nro2=0, entr;
+    double result = 0;
+
+
+    Console.WriteLine("|*************CALCULADORA*************|");
+    Console.WriteLine("|Ingrese un valor segun la operacion |");
+    Console.WriteLine("|1: para sumar                        |");
+    Console.WriteLine("|2: para restar                       |");
+    Console.WriteLine("|3: para multiplicar                  |");
+    Console.WriteLine("|4: para dividir                      |");
+    Console.WriteLine("|5: para obtener Factorial            |");
+    Console.WriteLine("|6: para obtener residuo              |");
+    Console.WriteLine("|7: para Convertir a Binario          |");
+    Console.WriteLine("|*************************************|");
+
+    entrada = Console.ReadLine();
+    entr = int.Parse(entrada);
+      
+    Console.WriteLine("ingrese digito 1: ");
+    entrada = Console.ReadLine();
+    Nro1 = int.Parse(entrada);            
+
+    if (entr != 5 & entr !=7) { 
+        Console.WriteLine("ingrese digito 2: ");
+        entrada = Console.ReadLine();
+        Nro2 = int.Parse(entrada);
+    }
+
+    switch (entr)
+    {
+        case 1:                    
+            result = Nro1+Nro2; 
+            break;
+        case 2:
+            result = Nro1 - Nro2;
+            break;
+        case 3:
+            result = Nro1 * Nro2;
+            break;
+        case 4:
+            result = Nro1 / Nro2;
+            break;
+        case 5:
+            if(Nro1 == 0 || Nro1 == 1) {
+                result = 1;
+            }
+            else { 
+                int i=(int)Nro1-1, factorial=(int)Nro1;
+                do
+                {
+                    factorial *= i;
+                    i--;
+
+                } while (i>1);
+                result = factorial;
+            }
+            break;
+        case 6:
+            result = Nro1%Nro2;
+            break;
+        case 7:
+            int intNro = (int)Nro1;
+            string result_str = Convert.ToString(intNro, 2);
+            result = double.Parse(result_str);
+            break;
+        default:
+            Console.WriteLine("no se intrudijo un valor válido");
+            break;
+    }
+    Console.WriteLine("El resultado es: "+result);
+}
